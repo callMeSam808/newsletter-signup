@@ -4,8 +4,10 @@ const port = 3000;
 const bodyParser = require('body-parser');
 
 
-app.get('/', (req, res) => {
+app.use(express.static('public'));
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/signup.html');
 });
 
 app.listen(port, () => {
