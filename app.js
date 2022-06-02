@@ -2,16 +2,15 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000;
 const https = require("https");
-const config = require("./config");
 
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 
-const apiKey = config.apiKey;
-const server = config.server;
-const listID = config.listID;
+const apiKey = process.env.apiKey;
+const server = process.env.server;
+const listID = process.env.listID;
 
 
 app.get('/', (req, res) => {
