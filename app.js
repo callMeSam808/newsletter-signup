@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const https = require("https");
+const config = require("./config");
 
 
 app.use(express.static('public'));
