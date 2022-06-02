@@ -8,9 +8,9 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
 
-const apiKey = "5f9aea9939823f77edfcdef5c63785bc-us14";
-const server = "us14";
-const listID = "8073f9606c"
+const apiKey = config.apiKey;
+const server = config.server;
+const listID = config.listID;
 
 
 app.get('/', (req, res) => {
@@ -47,11 +47,11 @@ app.post('/', (req, res) => {
 
   const request = https.request(url, options, (response) => {
     if (response.statusCode === 200) {
-      res.send("Success!");
+      res.sendFile(__dirname + '/success.html');
     } else {
-      res.send("Submission failed. Please try again!");
+      res.sendFile(__dirname + '/failure.html');
     }
-    
+
     response.on("data", (data) => {
       console.log(JSON.parse(data));
     })
