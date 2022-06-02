@@ -64,6 +64,11 @@ app.post('/', (req, res) => {
 });
 
 
+app.post("/failure", (req, res) => {
+  res.redirect("/");
+});
+
+
 app.listen(port, () => {
   console.log(`Newsletter-Signup is listening on port ${port}.`);
 });
